@@ -11,18 +11,44 @@ Welcome to the backend service for **CrimeLens AI**. This service provides a RES
 
 ```
 CrimeLensAI/
-├── backend/
-│   ├── .venv/               # Isolated Python virtual environment
-│   ├── crimelens.db         # Local SQLite database (auto-created on startup)
-│   ├── database.py          # SQLite connections, schema DDL & Pandas DataFrame loaders
-│   ├── main.py              # FastAPI application, CORS, routers & exception handlers
-│   ├── models.py            # Pydantic schemas for data validation & responses
-│   ├── requirements.txt     # Locked production dependencies
-│   ├── seed_data.py         # Synthetic benchmark dataset seed script
-│   ├── test_api.py          # Comprehensive automated test suite
-│   ├── start_backend.bat    # 1-click Windows CMD startup script
-│   └── start_backend.ps1    # 1-click PowerShell startup script
-└── ... (Frontend React files)
+├── backend/                   # Python FastAPI service, database & ML pipelines
+│   ├── .venv/                 # Active virtual environment (FastAPI, Pandas, Scikit-Learn)
+│   ├── data/                  # Dataset cards & limitation metadata
+│   ├── models_registry/       # Serialized models & reproducibility audit store
+│   ├── services/              # Forecasting, passage search, jobs & doc extraction
+│   ├── database.py            # SQLite connection pooling & schema DDL
+│   ├── main.py                # REST API routers & lifespan
+│   ├── models.py              # Pydantic v2 data models
+│   ├── seed_data.py           # Benchmark database seed script
+│   └── test_api.py            # Automated test suite (15 tests passing)
+│
+├── frontend/                  # ALL Frontend code consolidated here
+│   ├── node_modules/          # Frontend npm packages
+│   ├── src/                   # React 18 + TypeScript source code
+│   │   ├── components/        # Reusable UI components (PassageHighlight, TrustBanner, etc.)
+│   │   ├── data/              # Typed mock fallback datasets
+│   │   ├── pages/             # All 9 module views (Dashboard, Explorer, Trends, etc.)
+│   │   ├── services/          # Resilient API client with failover
+│   │   ├── types/             # TypeScript interfaces
+│   │   └── App.tsx            # Root component & page router
+│   ├── index.html             # HTML entry point
+│   ├── package.json           # Frontend dependencies & scripts
+│   ├── postcss.config.js      # PostCSS configuration
+│   ├── tailwind.config.js     # Tailwind CSS theme definition
+│   ├── tsconfig.json          # TypeScript strict configuration
+│   └── vite.config.ts         # Vite bundler & reverse proxy config
+│
+├── scripts/                   # One-command reproducibility suite
+│   ├── reproduce.ps1          # PowerShell end-to-end reproducer
+│   ├── reproduce.bat          # Windows batch reproducer
+│   └── reproduce.sh           # Bash reproducer
+│
+├── package.json               # Root monorepo proxy scripts (npm run dev / build)
+├── PROJECT_CASE_STUDY.md      # Authoritative project case study & portfolio document
+├── start.bat                  # 1-Click Frontend launcher (navigates into frontend/)
+├── start.ps1                  # PowerShell Frontend launcher
+├── start_backend.bat          # 1-Click Backend launcher
+└── start_backend.ps1          # PowerShell Backend launcher
 ```
 
 ---
